@@ -7,27 +7,27 @@
 $.fn.myfunc = function (userPref) {
     var self = this;
     this.defaultProperty = {
-      maxVal              : 180,         /**Max value of the meter*/
-      divFact             : 10,          /**Division value of the meter*/
-      dangerLevel         : 120,         /**more than this leval, color will be red*/
-      initDeg             : -45,         /**reading begins angle*/
-      maxDeg              : 270,         /**total angle of the meter reading*/
-      edgeRadius          : 150,         /**radius of the meter circle*/
-      speedNobeH          : 4,           /**speed nobe height*/
-      speedoNobeW         : 95,          /**speed nobe width*/
-      speedoNobeL         : 13,          /**speed nobe left position*/
-      indicatorRadius     : 125,         /**radius of indicators position*/
-      indicatorNumbRadius : 90,          /**radius of numbers position*/
-      speedPositionTxtWH  : 80,          /**speedo-meter current value cont*/
-      nobW                : 20,          /**indicator nob width*/
-      nobH                : 4,           /**indicator nob height*/
-      numbW               : 30,          /**indicator number width*/
-      numbH               : 16,          /**indicator number height*/
-      midNobW             : 10,          /**indicator mid nob width*/
-      midNobH             : 3,           /**indicator mid nob height*/
-      noOfSmallDiv        : 2,           /**no of small div between main div*/
-      eventListenerType   : 'change',    /**type of event listener*/
-      multiplier          : 1,	       /**Center value multiplier e.g. 1 x 1000 RPM*/	
+          maxVal              : 260,         /**Max value of the meter*/
+          divFact             : 5,          /**Division value of the meter*/
+          dangerLevel         : 150,         /**more than this leval, color will be red*/
+          initDeg             : -45,         /**reading begins angle*/
+          maxDeg              : 270,         /**total angle of the meter reading*/
+          edgeRadius          : 150,         /**radius of the meter circle*/
+          speedNobeH          : 4,           /**speed nobe height*/
+          speedoNobeW         : 95,          /**speed nobe width*/
+          speedoNobeL         : 13,          /**speed nobe left position*/
+          indicatorRadius     : 125,         /**radius of indicators position*/
+          indicatorNumbRadius : 90,          /**radius of numbers position*/
+          speedPositionTxtWH  : 80,          /**speedo-meter current value cont*/
+          nobW                : 20,          /**indicator nob width*/
+          nobH                : 4,           /**indicator nob height*/
+          numbW               : 30,          /**indicator number width*/
+          numbH               : 16,          /**indicator number height*/
+          midNobW             : 10,          /**indicator mid nob width*/
+          midNobH             : 3,           /**indicator mid nob height*/
+          noOfSmallDiv        : 2,           /**no of small div between main div*/
+          eventListenerType   : 'keyup',    /**type of event listener*/
+          multiplier          : 1,	       /**Center value multiplier e.g. 1 x 1000 RPM*/		
       gagueLabel   	: 'km/h'       /**Label on guage Face*/	
     }
     if(typeof userPref === 'object')
@@ -144,9 +144,14 @@ $.fn.myfunc = function (userPref) {
   
       this.parentElem.find(".envelope").append(speedNobe+tempDiv);
     }
+    this.rdupdate = function(){
+        myvalues=document.getElementById('myValues');
+        myvalues.value = Math.random()*260;
+        console.log(myvalues.value);
+        return myvalues.value;
+    }
     this.changePosition = function (){   
-      console.log($(this).val())
-      var speed = $(this).val();
+      var speed = self.rdupdate();
       if(speed > self.defaultProperty.maxVal){
         speed = self.defaultProperty.maxVal;
       }
@@ -175,8 +180,12 @@ $.fn.myfunc = function (userPref) {
         }
       }
     }
+
+
+    setTimeout(self.rdupdate,2000);
     this.creatHtmlsElecments();
     $(this).bind(this.defaultProperty.eventListenerType,this.changePosition);
+
     return this;
   }
 
@@ -202,8 +211,8 @@ $.fn.myfunc = function (userPref) {
       midNobW             : 10,          /**indicator mid nob width*/
       midNobH             : 3,           /**indicator mid nob height*/
       noOfSmallDiv        : 2,           /**no of small div between main div*/
-      eventListenerType   : 'change',    /**type of event listener*/
-      multiplier          : 1,	       /**Center value multiplier e.g. 1 x 1000 RPM*/	
+      eventListenerType   : 'keyup',    /**type of event listener*/
+      multiplier          : 100,	       /**Center value multiplier e.g. 1 x 1000 RPM*/	
       gagueLabel   	: 'tr/min'       /**Label on guage Face*/	
     }
     if(typeof userPref === 'object')
