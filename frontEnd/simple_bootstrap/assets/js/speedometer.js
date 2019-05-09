@@ -146,11 +146,21 @@ $.fn.myfunc = function (userPref) {
     }
     this.rdupdate = function(){
         myvalues=document.getElementById('myValues');
-        myvalues.value = Math.random()*260;
+        if(parseInt(myvalues.value)>130){
+            myvalues.value = parseInt(myvalues.value)- Math.random()*10;
+        }
+        if(parseInt(myvalues.value)<20){
+            myvalues.value = parseInt(myvalues.value)+ Math.random()*10;
+        }
+        myvalues.value = parseInt(myvalues.value)+ Math.random()*3;
+        
+        
         console.log(myvalues.value);
-        return myvalues.value;
+        return parseInt(myvalues.value);
     }
     this.changePosition = function (){   
+        setTimeout(self.changePosition,200);
+
       var speed = self.rdupdate();
       if(speed > self.defaultProperty.maxVal){
         speed = self.defaultProperty.maxVal;
@@ -182,7 +192,6 @@ $.fn.myfunc = function (userPref) {
     }
 
 
-    setTimeout(self.rdupdate,2000);
     this.creatHtmlsElecments();
     $(this).bind(this.defaultProperty.eventListenerType,this.changePosition);
 
