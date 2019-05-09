@@ -7,6 +7,7 @@
 $.fn.myfunc = function (userPref) {
     var self = this;
     this.defaultProperty = {
+          input_id            : "myvalues",
           maxVal              : 260,         /**Max value of the meter*/
           divFact             : 5,          /**Division value of the meter*/
           dangerLevel         : 150,         /**more than this leval, color will be red*/
@@ -145,7 +146,7 @@ $.fn.myfunc = function (userPref) {
       this.parentElem.find(".envelope").append(speedNobe+tempDiv);
     }
     this.rdupdate = function(){
-        myvalues=document.getElementById('myValues');
+        myvalues=document.getElementById(self.defaultProperty.input_id);
         if(parseInt(myvalues.value)>130){
             myvalues.value = parseInt(myvalues.value)- Math.random()*10;
         }

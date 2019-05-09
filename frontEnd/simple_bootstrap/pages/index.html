@@ -40,8 +40,8 @@
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/speedometer.js"></script>
     <script type="text/javascript">
-        $("#myValues").myfunc({divFact:10,eventListenerType:'change',gagueLabel:'bool'});
-        $("#myValues2").RPM({divFact:5});
+        $("#myValues").myfunc({input_id:"myValues",divFact:10,eventListenerType:'change',gagueLabel:'km/h'});
+        $("#myValues2").myfunc({input_id:"myValues2",maxVal:60,divFact:5,gagueLabel:"tr/min",dangerLevel:35,initDeg:-45,maxDeg:270,multiplier:100});
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
