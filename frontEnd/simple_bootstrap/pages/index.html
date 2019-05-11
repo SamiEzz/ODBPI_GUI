@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="../assets/css/main_style.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/speedometer.css" rel="stylesheet" type="text/css" />
-
+    <script src= 'https://cdn.zingchart.com/2.3.1/zingchart.min.js'></script>
+		<script> ZC.MODULESDIR = 'https://cdn.zingchart.com/2.3.1/modules/';
+		ZC.LICENSE = ['569d52cefae586f634c54f86dc99e6a9','ee6b7db5b51705a13dc2339db3edaf6d'];</script>
     <title>Hello, world!</title>
   </head>
   <body>
@@ -31,9 +33,14 @@
         </div>
         <div class="row">
             <div class="col-12">
-            One row
+              <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
             </div>
         </div>
+          <div class="row">
+            <div class="col-12">
+            <center><div id='output' class='inline'>% réservoir</div></center>
+            </div>
+          </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

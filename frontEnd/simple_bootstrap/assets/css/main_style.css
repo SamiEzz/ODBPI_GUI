@@ -1,4 +1,22 @@
-body{
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Lato:400';
+ body{
     background:#000;
     color: #FFF;
+}
+
+section {
+  width:200px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+ 
+.inline {
+  display:inline-block;
+}
+ 
+.zc-ref {
+  display: none;
 }
